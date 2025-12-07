@@ -466,8 +466,15 @@
                     totalDownloads += product.downloads || 0;
                 });
 
-                document.getElementById('total-downloads').textContent = 
-                    (totalDownloads / 1000).toFixed(1) + 'K';
+                let formattedDownloads;
+                if (totalDownloads === 0) {
+                    formattedDownloads = '0';
+                } else if (totalDownloads < 1000) {
+                    formattedDownloads = totalDownloads.toString();
+                } else {
+                    formattedDownloads = (totalDownloads / 1000).toFixed(1) + 'K';
+                }
+                document.getElementById('total-downloads').textContent = formattedDownloads;
             } catch (error) {
                 console.error('Error loading stats:', error);
             }
