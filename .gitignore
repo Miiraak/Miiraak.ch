@@ -1,5 +1,19 @@
-﻿################################################################################
+################################################################################
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
 /.vs
+
+# Ignore log files but keep the directory structure
+/logs/*.log
+
+# Ignore common system files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE/editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/

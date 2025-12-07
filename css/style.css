@@ -143,7 +143,7 @@ code {
     margin: 25px 0;
     padding: 20px;
     border: 1px solid var(--text-secondary);
-    background-color: rgba(0, 255, 0, 0. 03);
+    background-color: rgba(0, 255, 0, 0.03);
     transition: all 0.3s ease;
 }
 
