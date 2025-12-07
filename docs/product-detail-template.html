@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example Tool - Miiraak</title>
+    <meta name="description" content="Details and documentation for Example Tool">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* Product detail styles */
+        .product-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .product-header {
+            margin: 30px 0;
+            padding: 25px;
+            border: 2px solid var(--text-color);
+            background-color: rgba(0, 255, 0, 0.05);
+        }
+
+        .product-name {
+            color: var(--text-color);
+            font-size: 32px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .product-tagline {
+            color: var(--text-white);
+            font-size: 16px;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .product-meta {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--text-secondary);
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .meta-label {
+            color: var(--text-secondary);
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .meta-value {
+            color: var(--text-color);
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .download-primary {
+            margin: 30px 0;
+            padding: 30px;
+            border: 3px solid var(--text-color);
+            background-color: rgba(0, 255, 0, 0.08);
+            text-align: center;
+        }
+
+            .download-primary h2 {
+                color: var(--text-color);
+                margin-bottom: 15px;
+                font-size: 20px;
+            }
+
+        .btn-download {
+            display: inline-block;
+            padding: 15px 40px;
+            margin: 10px;
+            border: 2px solid var(--text-color);
+            background-color: var(--text-color);
+            color: var(--bg-color);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: bold;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+        }
+
+            .btn-download:hover {
+                background-color: transparent;
+                color: var(--text-color);
+                box-shadow: 0 0 30px rgba(0, 255, 0, 0.6);
+                text-shadow: 0 0 10px var(--text-color);
+                transform: scale(1.05);
+            }
+
+        .btn-secondary {
+            display: inline-block;
+            padding: 10px 25px;
+            margin: 5px;
+            border: 1px solid var(--text-secondary);
+            color: var(--text-secondary);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 12px;
+            transition: all 0.3s ease;
+        }
+
+            .btn-secondary:hover {
+                border-color: var(--text-color);
+                color: var(--text-color);
+                box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+            }
+
+        .section {
+            margin: 40px 0;
+            padding: 25px;
+            border: 1px solid var(--text-secondary);
+            background-color: rgba(0, 255, 0, 0.03);
+        }
+
+        .section-title {
+            color: var(--text-color);
+            font-size: 20px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding-bottom: 10px;
+            border-bottom: 1px dotted var(--text-secondary);
+        }
+
+            .section-title::before {
+                content: "// ";
+                color: var(--text-secondary);
+            }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+        }
+
+            .features-list li {
+                padding: 10px 0;
+                padding-left: 30px;
+                position: relative;
+                color: var(--text-white);
+            }
+
+                .features-list li::before {
+                    content: "✓";
+                    position: absolute;
+                    left: 0;
+                    color: var(--text-color);
+                    font-weight: bold;
+                    font-size: 18px;
+                }
+
+        .requirements-list {
+            list-style: none;
+            padding: 0;
+        }
+
+            .requirements-list li {
+                padding: 8px 0;
+                padding-left: 30px;
+                position: relative;
+                color: var(--text-white);
+            }
+
+                .requirements-list li::before {
+                    content: "→";
+                    position: absolute;
+                    left: 0;
+                    color: var(--text-color);
+                    font-weight: bold;
+                }
+
+        .usage-block {
+            margin: 20px 0;
+        }
+
+        .usage-title {
+            color: var(--text-color);
+            font-size: 14px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .code-block {
+            background-color: rgba(0, 0, 0, 0.7);
+            border: 1px solid var(--text-secondary);
+            padding: 20px;
+            margin: 10px 0;
+            overflow-x: auto;
+            position: relative;
+        }
+
+            .code-block code {
+                color: var(--text-color);
+                font-family: 'Courier New', monospace;
+                font-size: 14px;
+            }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            background-color: rgba(0, 255, 0, 0.1);
+            border: 1px solid var(--text-secondary);
+            color: var(--text-secondary);
+            font-size: 11px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+            .copy-btn:hover {
+                background-color: rgba(0, 255, 0, 0.2);
+                border-color: var(--text-color);
+                color: var(--text-color);
+            }
+
+        .warning-banner {
+            padding: 15px 20px;
+            margin: 20px 0;
+            border: 2px solid #ff9900;
+            background-color: rgba(255, 165, 0, 0.1);
+            color: #ff9900;
+        }
+
+            .warning-banner::before {
+                content: "⚠ ";
+                font-weight: bold;
+                margin-right: 5px;
+            }
+
+        .info-banner {
+            padding: 15px 20px;
+            margin: 20px 0;
+            border: 2px solid #00aaff;
+            background-color: rgba(0, 170, 255, 0.1);
+            color: #00aaff;
+        }
+
+            .info-banner::before {
+                content: "ℹ ";
+                font-weight: bold;
+                margin-right: 5px;
+            }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .stat-box {
+            padding: 20px;
+            border: 1px solid var(--text-secondary);
+            background-color: rgba(0, 255, 0, 0.05);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+            .stat-box:hover {
+                border-color: var(--text-color);
+                box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+            }
+
+        .stat-number {
+            color: var(--text-color);
+            font-size: 28px;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        .loading {
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .changelog {
+            margin: 20px 0;
+        }
+
+        .changelog-item {
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 3px solid var(--text-color);
+            background-color: rgba(0, 255, 0, 0.03);
+        }
+
+        .changelog-version {
+            color: var(--text-color);
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .changelog-date {
+            color: var(--text-secondary);
+            font-size: 12px;
+            margin-left: 10px;
+        }
+
+        .changelog-changes {
+            margin-top: 10px;
+            color: var(--text-white);
+        }
+
+        .back-navigation {
+            margin: 40px 0 20px 0;
+            padding-top: 20px;
+            border-top: 1px solid var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .product-name {
+                font-size: 24px;
+            }
+
+            .product-meta {
+                gap: 15px;
+            }
+
+            .btn-download {
+                width: 100%;
+                margin: 10px 0;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- ASCII Art Header -->
+        <pre class="ascii-art">
+ ███▄ ▄███▓ ██▓ ██▓ ██▀███   ▄▄▄      ▄▄▄       ██ ▄█▀
+▓██▒▀█▀ ██▒▓██▒▓██▒▓██ ▒ ██▒▒████▄   ▒████▄     ██▄█▒ 
+▓██    ▓██░▒██▒▒██▒▓██ ░▄█ ▒▒██  ▀█▄ ▒██  ▀█▄  ▓███▄░ 
+▒██    ▒██ ░██░░██░▒██▀▀█▄  ░██▄▄▄▄██░██▄▄▄▄██ ▓██ █▄ 
+▒██▒   ░██▒░██░░██░░██▓ ▒██▒ ▓█   ▓██▒▓█   ▓██▒▒██▒ █▄
+░ ▒░   ░  ░░▓  ░▓  ░ ▒▓ ░▒▓░ ▒▒   ▓▒█░▒▒   ▓▒█░▒ ▒▒ ▓▒
+░  ░      ░ ▒ ░ ▒ ░  ░▒ ░ ▒░  ▒   ▒▒ ░ ▒   ▒▒ ░░ ░▒ ▒░
+░      ░    ▒ ░ ▒ ░  ░░   ░   ░   ▒    ░   ▒   ░ ░░ ░ 
+       ░    ░   ░     ░           ░  ░     ░  ░░  ░   
+        </pre>
+
+        <div class="product-container">
+            <p class="prompt">root@miiraak:~/docs$ cat example-tool.json</p>
+
+            <!-- Product Header -->
+            <div class="product-header">
+                <h1 class="product-name">► EXAMPLE-TOOL. EXE</h1>
+                <p class="product-tagline">A PowerShell automation tool to simplify your Windows deployments</p>
+
+                <div class="product-meta">
+                    <!-- STATIC DATA - Edit these for each product -->
+                    <div class="meta-item">
+                        <span class="meta-label">Version</span>
+                        <span class="meta-value">v2.1.0</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Size</span>
+                        <span class="meta-value">2.5 MB</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Release Date</span>
+                        <span class="meta-value">2025-12-07</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Platform</span>
+                        <span class="meta-value">Windows 10/11</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">License</span>
+                        <span class="meta-value">All Rights Reserved</span>
+                    </div>
+                    <!-- DYNAMIC DATA - Auto-loaded from stats.json -->
+                    <div class="meta-item">
+                        <span class="meta-label">Downloads</span>
+                        <span class="meta-value" id="total-downloads">
+                            <span class="loading">...</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Primary Download Section -->
+            <div class="download-primary">
+                <h2>// DOWNLOAD NOW</h2>
+                <a href="../files/example-tool.exe" class="btn-download">⬇ DOWNLOAD v2.1.0</a>
+                <br>
+                <a href="https://github.com/Miiraak/example-tool" class="btn-secondary">View Source Code</a>
+                <a href="#" class="btn-secondary">Full Documentation</a>
+            </div>
+
+            <!-- DYNAMIC Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <span class="stat-number" id="stat-downloads">
+                        <span class="loading">...</span>
+                    </span>
+                    <span class="stat-label">Downloads</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number" id="stat-rating">
+                        <span class="loading">...</span>
+                    </span>
+                    <span class="stat-label">Rating</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number" id="stat-stars">
+                        <span class="loading">...</span>
+                    </span>
+                    <span class="stat-label">GitHub Stars</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">v2.1.0</span>
+                    <span class="stat-label">Latest</span>
+                </div>
+            </div>
+
+            <!-- Description -->
+            <div class="section">
+                <h2 class="section-title">Description</h2>
+                <p style="color: var(--text-white); line-height: 1.8;">
+                    <strong>Example-Tool</strong> is an advanced PowerShell script that automates the installation
+                    and configuration of a complete Windows environment. Designed for developers, system admins,
+                    and power users tired of manually reinstalling Windows.
+                </p>
+                <p style="color: var(--text-white); line-height: 1.8; margin-top: 15px;">
+                    This tool handles the installation of your favorite applications, configures system settings,
+                    deploys your dotfiles, and allows you to go from 0 to a fully operational system in less than 15 minutes.
+                </p>
+            </div>
+
+            <!-- Features -->
+            <div class="section">
+                <h2 class="section-title">Features</h2>
+                <ul class="features-list">
+                    <li>Automatic software installation via Winget/Chocolatey</li>
+                    <li>Automatic configuration of Windows privacy settings</li>
+                    <li>Disable telemetry and bloatware removal</li>
+                    <li>Deploy custom dotfiles and configuration files</li>
+                    <li>Performance tweaks (services, scheduled tasks, etc.)</li>
+                    <li>Install Windows Terminal, PowerShell 7, Git, VS Code</li>
+                    <li>Configure PATH and environment variables</li>
+                    <li>Complete logging of all operations</li>
+                </ul>
+            </div>
+
+            <!-- Requirements -->
+            <div class="section">
+                <h2 class="section-title">System Requirements</h2>
+                <ul class="requirements-list">
+                    <li>Windows 10 version 1809 or higher (or Windows 11)</li>
+                    <li>PowerShell 5.1 minimum (PowerShell 7+ recommended)</li>
+                    <li>Administrator rights</li>
+                    <li>Stable internet connection</li>
+                    <li>At least 2 GB of free disk space</li>
+                </ul>
+            </div>
+
+            <!-- Installation & Usage -->
+            <div class="section">
+                <h2 class="section-title">Installation & Usage</h2>
+
+                <div class="usage-block">
+                    <p class="usage-title">▸ Method 1: Direct Execution (Recommended)</p>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+                        <code>IEX (New-Object Net.WebClient).DownloadString('https://miiraak.ch/files/example-tool.ps1')</code>
+                    </div>
+                </div>
+
+                <div class="usage-block">
+                    <p class="usage-title">▸ Method 2: Download then Execute</p>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+                        <code>
+                            # Download
+                            Invoke-WebRequest -Uri 'https://miiraak.ch/files/example-tool.ps1' -OutFile 'setup.ps1'
+
+                            # Execute
+                            .\setup.ps1
+                        </code>
+                    </div>
+                </div>
+
+                <div class="info-banner">
+                    <strong>Tip:</strong> Use the <code>-WhatIf</code> parameter to see what the script will do without actually executing it.
+                </div>
+            </div>
+
+            <!-- Warnings -->
+            <div class="section">
+                <h2 class="section-title">Warnings</h2>
+                <div class="warning-banner">
+                    <strong>IMPORTANT:</strong> This script modifies critical system settings.
+                    Always create a backup before running it on a production system.
+                </div>
+            </div>
+
+            <!-- Changelog -->
+            <div class="section">
+                <h2 class="section-title">Changelog</h2>
+                <div class="changelog">
+                    <div class="changelog-item">
+                        <span class="changelog-version">v2.1.0</span>
+                        <span class="changelog-date">December 07, 2025</span>
+                        <div class="changelog-changes">
+                            <ul>
+                                <li>Added support for Windows 11 24H2</li>
+                                <li>Improved error handling</li>
+                                <li>New -OptimizePerformance parameter</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="changelog-item">
+                        <span class="changelog-version">v2.0.0</span>
+                        <span class="changelog-date">November 15, 2025</span>
+                        <div class="changelog-changes">
+                            <ul>
+                                <li>Complete script architecture overhaul</li>
+                                <li>PowerShell 7 support</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Back Navigation -->
+            <div class="back-navigation">
+                <p class="prompt">root@miiraak:~/docs$ cd ..</p>
+                <a href="../downloads.html" class="btn-secondary">← Back to Downloads</a>
+                <a href="../index.html" class="btn-secondary">← Back to Home</a>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Miiraak | <a href="https://github.com/Miiraak">GitHub</a></p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/stats.js"></script>
+    <script>
+        // PRODUCT ID - Change this for each product
+        const PRODUCT_ID = 'example-tool';
+
+        // Load stats on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            loadProductStats(PRODUCT_ID);
+        });
+    </script>
+</body>
+</html>

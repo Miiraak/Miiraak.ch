@@ -1,4 +1,4 @@
-# . htaccess for Miiraak.ch - File Direct Access Configuration
+# .htaccess for Miiraak.ch - File Direct Access Configuration
 
 # Enable directory listing (optional - remove if you don't want file browsing)
 Options +Indexes
@@ -33,14 +33,14 @@ IndexOptions FancyIndexing HTMLTable VersionSort FoldersFirst NameWidth=* Descri
     
     # Text Files
     AddType text/plain .txt
-    AddType text/plain . log
+    AddType text/plain .log
     
     # JSON
     AddType application/json .json
 </IfModule>
 
 # Security - Prevent access to sensitive files
-<FilesMatch "^\. ">
+<FilesMatch "^\.">
     Order allow,deny
     Deny from all
 </FilesMatch>
@@ -65,4 +65,4 @@ AddDefaultCharset UTF-8
 FileETag None
 
 # Custom error pages (optional)
-# ErrorDocument 404 /404. html
+# ErrorDocument 404 /404.html

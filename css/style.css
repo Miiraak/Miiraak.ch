@@ -19,7 +19,7 @@
 body {
     background-color: var(--bg-color);
     color: var(--text-white);
-    font-family: 'Courier New', Courier, monospace;
+    font-family: "Lucida Console", "Monaco", "DejaVu Sans Mono", monospace;
     line-height: 1.6;
     padding: 20px;
     min-height: 100vh;
@@ -64,7 +64,7 @@ body {
     50%, 100% { opacity: 0; }
 }
 
-. description {
+.description {
     color: var(--text-white);
     margin: 10px 0 30px 0;
     font-style: italic;
@@ -75,12 +75,12 @@ body {
     margin: 30px 0;
 }
 
-. file-list {
+.file-list {
     list-style: none;
     margin: 15px 0;
 }
 
-. file-list li {
+.file-list li {
     margin: 10px 0;
     padding-left: 20px;
 }
@@ -184,16 +184,16 @@ code {
     border: 1px solid var(--text-color);
     color: var(--text-color);
     text-decoration: none;
-    transition: all 0. 3s ease;
+    transition: all 0.3s ease;
 }
 
-. download-link:hover {
+.download-link:hover {
     background-color: var(--text-color);
     color: var(--bg-color);
     text-shadow: none;
 }
 
-. usage {
+.usage {
     display: block;
     margin-top: 10px;
     font-size: 12px;
@@ -205,7 +205,7 @@ code {
     margin: 40px 0 20px 0;
 }
 
-. back-link a {
+.back-link a {
     font-size: 16px;
 }
 
@@ -221,7 +221,7 @@ footer {
 
 /* Responsive */
 @media (max-width: 768px) {
-    . ascii-art {
+    .ascii-art {
         font-size: 8px;
     }
     
