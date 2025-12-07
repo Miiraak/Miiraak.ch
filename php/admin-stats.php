@@ -144,7 +144,7 @@ foreach ($stats as $data) {
                 <tbody>
                     <?php foreach ($stats as $id => $data): ?>
                     <tr>
-                        <td><strong><?php echo htmlspecialchars($id); ? ></strong></td>
+                        <td><strong><?php echo htmlspecialchars($id); ?></strong></td>
                         <td style="color: var(--text-color); font-weight: bold;"><?php echo number_format($data['downloads'] ?? 0); ?></td>
                         <td>⭐ <?php echo $data['rating'] ?? 'N/A'; ?></td>
                         <td>⭐ <?php echo $data['github_stars'] ?? 0; ?></td>

@@ -8,19 +8,19 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Easter egg: Console commands
     window.help = function() {
-        console. log('%c Available commands:', 'color: #00ff00; font-weight: bold;');
-        console. log('%c - help: Show this message', 'color: #00aa00;');
+        console.log('%c Available commands:', 'color: #00ff00; font-weight: bold;');
+        console.log('%c - help: Show this message', 'color: #00aa00;');
         console.log('%c - about: About Miiraak', 'color: #00aa00;');
         console.log('%c - clear: Clear console', 'color: #00aa00;');
         console.log('%c - files: List available files', 'color: #00aa00;');
     };
     
     window.about = function() {
-        console.log('%c Bunch of scraps here, lot from my stupid poping brain ideas... ', 'color: #ffffff; font-style: italic;');
+        console.log('%c Bunch of scraps here, lot from my stupid poping brain ideas...', 'color: #ffffff; font-style: italic;');
     };
     
     window.files = function() {
-        console. log('%c Direct file access: https://miiraak.ch/files/<filename>', 'color: #00ff00;');
+        console.log('%c Direct file access: https://miiraak.ch/files/<filename>', 'color: #00ff00;');
     };
     
     // Optional: Typing effect for description (uncomment to enable)
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         function typeWriter() {
             if (i < text.length) {
-                descriptionElement.textContent += text. charAt(i);
+                descriptionElement.textContent += text.charAt(i);
                 i++;
                 setTimeout(typeWriter, 50);
             }
@@ -46,9 +46,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add keyboard shortcuts
     document.addEventListener('keydown', function(e) {
         // Ctrl/Cmd + K to clear (easter egg)
-        if ((e.ctrlKey || e. metaKey) && e.key === 'k') {
+        if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
             console.clear();
-            console.log('%c Console cleared.  Type "help" for commands.', 'color: #00ff00;');
+            console.log('%c Console cleared. Type "help" for commands.', 'color: #00ff00;');
             e.preventDefault();
         }
     });
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
     canvas.style.opacity = '0.1';
     
     canvas.width = window.innerWidth;
-    canvas.height = window. innerHeight;
+    canvas.height = window.innerHeight;
     
     const matrix = "MIIRAAK01";
     const fontSize = 16;
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     function drawMatrix() {
         ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-        ctx. fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
         
         ctx.fillStyle = '#00ff00';
         ctx.font = fontSize + 'px monospace';
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
     setInterval(drawMatrix, 35);
     
     window.addEventListener('resize', function() {
-        canvas.width = window. innerWidth;
+        canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
     });
     */

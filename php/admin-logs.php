@@ -9,11 +9,11 @@ $logFile = '../logs/download_errors.log'; // ✅ CHANGÉ
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1. 0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Download Logs - Admin</title>
     <link rel="stylesheet" href="../css/style.css"> <!-- ✅ CHANGÉ -->
     <style>
-        . admin-container {
+        .admin-container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
@@ -46,7 +46,7 @@ $logFile = '../logs/download_errors.log'; // ✅ CHANGÉ
             border-left-color: #ff0000;
             color: #ffaaaa;
         }
-        . log-warning {
+        .log-warning {
             border-left-color: #ffaa00;
             color: #ffddaa;
         }
@@ -82,10 +82,10 @@ $logFile = '../logs/download_errors.log'; // ✅ CHANGÉ
 
         <div class="admin-container">
             <h1 style="color: var(--text-color); text-align: center;">📋 DOWNLOAD LOGS</h1>
-            <p class="prompt">root@miiraak:~$ tail -f logs/download_errors. log</p>
+            <p class="prompt">root@miiraak:~$ tail -f logs/download_errors.log</p>
 
             <div class="log-container">
-                <? php
+                <?php
                 if (file_exists($logFile)) {
                     $logs = file($logFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
                     $logs = array_reverse($logs);

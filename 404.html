@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Not Found | Miiraak</title>
+    <meta name="description" content="Page not found">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .error-container {
+            text-align: center;
+            margin: 50px auto;
+            max-width: 800px;
+        }
+        .error-code {
+            font-size: 120px;
+            color: var(--text-color);
+            text-shadow: 0 0 20px var(--text-color);
+            margin: 20px 0;
+            animation: glitch 2s infinite;
+        }
+        @keyframes glitch {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+        }
+        .error-message {
+            color: var(--text-white);
+            font-size: 24px;
+            margin: 20px 0;
+        }
+        .error-description {
+            color: var(--text-secondary);
+            font-size: 16px;
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+        .error-links {
+            margin: 40px 0;
+        }
+        .error-link {
+            display: inline-block;
+            margin: 10px;
+            padding: 12px 30px;
+            border: 2px solid var(--text-color);
+            color: var(--text-color);
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        .error-link:hover {
+            background-color: var(--text-color);
+            color: var(--bg-color);
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <pre class="ascii-art">
+ ███▄ ▄███▓ ██▓ ██▓ ██▀███   ▄▄▄      ▄▄▄       ██ ▄█▀
+▓██▒▀█▀ ██▒▓██▒▓██▒▓██ ▒ ██▒▒████▄   ▒████▄     ██▄█▒ 
+▓██    ▓██░▒██▒▒██▒▓██ ░▄█ ▒▒██  ▀█▄ ▒██  ▀█▄  ▓███▄░ 
+▒██    ▒██ ░██░░██░▒██▀▀█▄  ░██▄▄▄▄██░██▄▄▄▄██ ▓██ █▄ 
+▒██▒   ░██▒░██░░██░░██▓ ▒██▒ ▓█   ▓██▒▓█   ▓██▒▒██▒ █▄
+░ ▒░   ░  ░░▓  ░▓  ░ ▒▓ ░▒▓░ ▒▒   ▓▒█░▒▒   ▓▒█░▒ ▒▒ ▓▒
+░  ░      ░ ▒ ░ ▒ ░  ░▒ ░ ▒░  ▒   ▒▒ ░ ▒   ▒▒ ░░ ░▒ ▒░
+░      ░    ▒ ░ ▒ ░  ░░   ░   ░   ▒    ░   ▒   ░ ░░ ░ 
+       ░    ░   ░     ░           ░  ░     ░  ░░  ░   
+        </pre>
+
+        <div class="error-container">
+            <p class="prompt">root@miiraak:~$ cd /404</p>
+            <div class="error-code">404</div>
+            <p class="error-message">// FILE NOT FOUND</p>
+            <p class="error-description">
+                The requested page does not exist in this directory.<br>
+                It may have been moved, deleted, or never existed in the first place.
+            </p>
+            
+            <div class="error-links">
+                <p class="prompt">root@miiraak:~$ ls -la ../</p>
+                <a href="index.html" class="error-link">← Home</a>
+                <a href="Docs.html" class="error-link">Documentation</a>
+                <a href="downloads.html" class="error-link">Downloads</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Miiraak | <a href="https://github.com/Miiraak">GitHub</a></p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

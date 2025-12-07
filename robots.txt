@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /php/
+Disallow: /logs/
+Disallow: /data/
+
+Sitemap: https://miiraak.ch/sitemap.xml

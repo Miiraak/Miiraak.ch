@@ -28,7 +28,7 @@
             background-color: rgba(255, 0, 0, 0.1);
             color: #ff0000;
         }
-        . test-warning {
+        .test-warning {
             border-color: #ffaa00;
             background-color: rgba(255, 170, 0, 0.1);
             color: #ffaa00;
@@ -57,7 +57,7 @@
                 'should_write' => true,
             ],
             'logs_file' => [
-                'name' => 'Logs File (../logs/download_errors. log)',
+                'name' => 'Logs File (../logs/download_errors.log)',
                 'path' => '../logs/download_errors.log', // ✅ CHANGÉ
                 'should_exist' => false,
                 'should_read' => true,
@@ -88,7 +88,7 @@
                 $messages[] = "✓ Exists";
             }
             
-            if ($test['should_read'] && $exists && ! $readable) {
+            if ($test['should_read'] && $exists && !$readable) {
                 $allGood = false;
                 $messages[] = "❌ Not readable";
             } elseif ($readable) {
@@ -109,7 +109,7 @@
             }
             
             $class = $allGood ? 'test-success' : 'test-error';
-            if (! $test['should_exist'] && ! $exists) {
+            if (!$test['should_exist'] && !$exists) {
                 $class = 'test-warning';
                 $messages[] = "⚠ Will be created automatically";
             }
