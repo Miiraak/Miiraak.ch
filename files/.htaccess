@@ -65,4 +65,4 @@ AddDefaultCharset UTF-8
 FileETag None
 
 # Custom error pages (optional)
-# ErrorDocument 404/404.html
+# ErrorDocument 404 /404.html
