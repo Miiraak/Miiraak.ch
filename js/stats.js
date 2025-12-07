@@ -63,8 +63,9 @@ function showStatsFallback() {
 
 // Copy code to clipboard
 function copyCode(button) {
-    const codeBlock = button.nextElementSibling;
-    const text = codeBlock.textContent;
+    const codeBlock = button.closest('.code-block');
+    const codeElement = codeBlock ? codeBlock.querySelector('code') : null;
+    const text = codeElement ? codeElement.textContent : '';
 
     navigator.clipboard.writeText(text).then(() => {
         button.textContent = 'COPIED!';
