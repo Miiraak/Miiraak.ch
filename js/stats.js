@@ -1,4 +1,4 @@
-﻿// stats.js - Load dynamic product statistics
+// stats.js - Load dynamic product statistics
 
 async function loadProductStats(productId) {
     try {
