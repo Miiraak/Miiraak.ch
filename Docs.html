@@ -379,7 +379,7 @@
             <!-- No Results Message -->
             <div class="no-results" id="no-results" style="display: none;">
                 <p class="prompt">root@miiraak:~/docs$ grep -i "query"</p>
-                <p style="color: var(--text-secondary); margin-top: 15px;">No documentation found matching your search. </p>
+                <p style="color: var(--text-secondary); margin-top: 15px;">No documentation found matching your search.</p>
             </div>
 
             <!-- Back Navigation -->
@@ -416,7 +416,7 @@
         filterTags.forEach(tag => {
             tag.addEventListener('click', function() {
                 // Remove active from all tags
-                filterTags. forEach(t => t.classList.remove('active'));
+                filterTags.forEach(t => t.classList.remove('active'));
                 // Add active to clicked tag
                 this.classList.add('active');
                 // Set active filter

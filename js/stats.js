@@ -43,7 +43,7 @@ async function loadProductStats(productId) {
 
             console.log(`✓ Stats loaded for ${productId}`);
         } else {
-            console.error(`✗ Product "${productId}" not found in stats. json`);
+            console.error(`✗ Product "${productId}" not found in stats.json`);
             showStatsFallback();
         }
     } catch (error) {
@@ -67,13 +67,13 @@ function copyCode(button) {
     const text = codeBlock.textContent;
 
     navigator.clipboard.writeText(text).then(() => {
-        button.textContent = 'COPIED! ';
-        button.style.backgroundColor = 'rgba(0, 255, 0, 0. 3)';
+        button.textContent = 'COPIED!';
+        button.style.backgroundColor = 'rgba(0, 255, 0, 0.3)';
         button.style.color = 'var(--text-color)';
 
         setTimeout(() => {
             button.textContent = 'COPY';
-            button.style.backgroundColor = 'rgba(0, 255, 0, 0. 1)';
+            button.style.backgroundColor = 'rgba(0, 255, 0, 0.1)';
             button.style.color = 'var(--text-secondary)';
         }, 2000);
     }).catch(err => {
