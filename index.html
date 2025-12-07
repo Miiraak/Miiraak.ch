@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miiraak - Terminal</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <pre class="ascii-art">
+ ███▄ ▄███▓ ██▓ ██▓ ██▀███   ▄▄▄      ▄▄▄       ██ ▄█▀
+▓██▒▀█▀ ██▒▓██▒▓██▒▓██ ▒ ██▒▒████▄   ▒████▄     ██▄█▒ 
+▓██    ▓██░▒██▒▒██▒▓██ ░▄█ ▒▒██  ▀█▄ ▒██  ▀█▄  ▓███▄░ 
+▒██    ▒██ ░██░░██░▒██▀▀█▄  ░██▄▄▄▄██░██▄▄▄▄██ ▓██ █▄ 
+▒██▒   ░██▒░██░░██░░██▓ ▒██▒ ▓█   ▓██▒▓█   ▓██▒▒██▒ █▄
+░ ▒░   ░  ░░▓  ░▓  ░ ▒▓ ░▒▓░ ▒▒   ▓▒█░▒▒   ▓▒█░▒ ▒▒ ▓▒
+░  ░      ░ ▒ ░ ▒ ░  ░▒ ░ ▒░  ▒   ▒▒ ░ ▒   ▒▒ ░░ ░▒ ▒░
+░      ░    ▒ ░ ▒ ░  ░░   ░   ░   ▒    ░   ▒   ░ ░░ ░ 
+       ░    ░   ░     ░           ░  ░     ░  ░░  ░   
+        </pre>
+
+        <div class="terminal-output">
+            <p class="prompt">root@miiraak:~$ <span class="cursor">_</span></p>
+            <p class="description">Bunch of scraps here, lot from my stupid poping brain ideas...</p>
+
+            <div class="menu">
+                <p class="prompt">root@miiraak:~$ ls -la</p>
+                <ul class="file-list">
+                    <li><a href="index.html">[HOME]</a> - You are here</li>
+                    <li><a href="downloads.html">[DOWNLOADS]</a> - Software & Tools</li>
+                    <li><a href="files/">[FILES]</a> - Direct file access</li>
+                </ul>
+            </div>
+
+            <div class="info">
+                <p class="prompt">root@miiraak:~$ cat info.txt</p>
+                <p>» Direct file access: <a href="files/">https://miiraak.ch/files/<filename></a></p>
+                <p>» PowerShell: <code>IEX (New-Object Net. WebClient).DownloadString('https://miiraak.ch/files/script.ps1')</code></p>
+                <p>» Curl: <code>curl https://miiraak.ch/files/script.ps1 | sh</code></p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Miiraak | <a href="https://github.com/Miiraak">GitHub</a></p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

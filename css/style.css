@@ -1,0 +1,264 @@
+/* Terminal/Hacker Style - Miiraak. ch */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-color: #0a0a0a;
+    --text-color: #00ff00;
+    --text-secondary: #00aa00;
+    --text-white: #ffffff;
+    --link-color: #00ff00;
+    --link-hover: #00ff00;
+    --border-color: #00ff00;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-white);
+    font-family: 'Courier New', Courier, monospace;
+    line-height: 1.6;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    flex: 1;
+}
+
+/* ASCII Art Header */
+.ascii-art {
+    color: var(--text-color);
+    font-size: 12px;
+    line-height: 1.2;
+    margin-bottom: 30px;
+    text-align: center;
+    overflow-x: auto;
+    text-shadow: 0 0 5px var(--text-color);
+}
+
+/* Terminal Output */
+.terminal-output {
+    margin-top: 20px;
+}
+
+.prompt {
+    color: var(--text-color);
+    margin: 15px 0;
+    font-weight: bold;
+}
+
+.cursor {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+}
+
+. description {
+    color: var(--text-white);
+    margin: 10px 0 30px 0;
+    font-style: italic;
+}
+
+/* Menu / File List */
+.menu {
+    margin: 30px 0;
+}
+
+. file-list {
+    list-style: none;
+    margin: 15px 0;
+}
+
+. file-list li {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+.file-list li::before {
+    content: "→ ";
+    color: var(--text-color);
+    margin-right: 5px;
+}
+
+/* Links */
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: var(--link-hover);
+    text-shadow: 0 0 10px var(--link-hover);
+    text-decoration: underline;
+}
+
+/* Info Section */
+.info {
+    margin: 30px 0;
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    background-color: rgba(0, 255, 0, 0.05);
+}
+
+.info p {
+    margin: 8px 0;
+}
+
+code {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--text-color);
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 14px;
+    display: inline-block;
+    margin: 5px 0;
+}
+
+/* Downloads Page */
+.downloads-section {
+    margin: 30px 0;
+}
+
+.downloads-section h2 {
+    color: var(--text-color);
+    margin-bottom: 20px;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.download-item {
+    margin: 25px 0;
+    padding: 20px;
+    border: 1px solid var(--text-secondary);
+    background-color: rgba(0, 255, 0, 0. 03);
+    transition: all 0.3s ease;
+}
+
+.download-item:hover {
+    border-color: var(--text-color);
+    background-color: rgba(0, 255, 0, 0.08);
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+}
+
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.item-name {
+    color: var(--text-color);
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.item-size {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.item-description {
+    color: var(--text-white);
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+.download-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 20px;
+    border: 1px solid var(--text-color);
+    color: var(--text-color);
+    text-decoration: none;
+    transition: all 0. 3s ease;
+}
+
+. download-link:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    text-shadow: none;
+}
+
+. usage {
+    display: block;
+    margin-top: 10px;
+    font-size: 12px;
+    width: 100%;
+    overflow-x: auto;
+}
+
+.back-link {
+    margin: 40px 0 20px 0;
+}
+
+. back-link a {
+    font-size: 16px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px 0;
+    border-top: 1px solid var(--text-secondary);
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    . ascii-art {
+        font-size: 8px;
+    }
+    
+    body {
+        padding: 10px;
+    }
+    
+    .item-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .item-size {
+        margin-top: 5px;
+    }
+    
+    code {
+        font-size: 12px;
+        word-break: break-all;
+    }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--text-secondary);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-color);
+}
