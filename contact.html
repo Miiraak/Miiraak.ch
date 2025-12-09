@@ -158,7 +158,7 @@
             const csrf = form.csrf_token.value.trim();
 
             if (!name || !email || !subject || !message) return showMessage('Please fill all required fields.');
-            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return showMessage('Invalid email address.');
+            // Email format is validated by the browser's built-in validation (type="email").
             if (website !== '') return showMessage('Submission rejected.');
 
             submitBtn.disabled = true;
