@@ -28,7 +28,7 @@ Miiraak.ch/
 │   ├── admin-stats.php # Admin statistics dashboard
 │   └── admin-logs.php  # Admin log viewer
 ├── html/
-│   ├── 402.html        # Page 401
+│   ├── 401.html        # Page 401
 │   ├── 403.html        # Page 403
 │   └── 404.html        # Page 404
 ├── docs/
