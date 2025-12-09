@@ -144,7 +144,11 @@
           .catch(()=>{/* ignore */});
 
         function showMessage(text, type='error') {
-            formMsg.innerHTML = '<div class="message ' + (type==='success' ? 'success' : 'error') + '">' + text + '</div>';
+            formMsg.innerHTML = '';
+            const msgDiv = document.createElement('div');
+            msgDiv.className = 'message ' + (type === 'success' ? 'success' : 'error');
+            msgDiv.textContent = text;
+            formMsg.appendChild(msgDiv);
         }
 
         form.addEventListener('submit', (e) => {
