@@ -94,28 +94,33 @@ Thanks!"
 
     <script src="/js/main.js"></script>
 
-    <!-- Minimal mailto builder: assembles address and encodes subject/body -->
     <script>
-    (function() {
-      function buildMailto(el) {
-        if (!el) return;
-        const user = (el.getAttribute('data-user') || '').trim();
-        const domain = (el.getAttribute('data-domain') || '').trim();
-        const subjectRaw = el.getAttribute('data-subject') || '';
-        const bodyRaw = el.getAttribute('data-body') || '';
-        if (!user || !domain) return;
+        (function () {
+            function buildMailto(el) {
+                const userRaw = (el.getAttribute('data-user') || '').trim();
+                const domainRaw = (el.getAttribute('data-domain') || '').trim();
+                const subjectRaw = (el.getAttribute('data-subject') || '').trim();
+                const bodyRaw = (el.getAttribute('data-body') || '').trim();
 
-        // Encode cleanly from readable template (with real newlines)
-        const subject = encodeURIComponent(subjectRaw);
-        const body = encodeURIComponent(bodyRaw);
+                if (!userRaw || !domainRaw) return;
 
-        el.setAttribute('href', `mailto:${encodeURIComponent(user)}@${encodeURIComponent(domain)}?subject=${subject}&body=${body}`);
-      }
+                const userSafe = encodeURIComponent(userRaw);
+                const domainSafe = encodeURIComponent(domainRaw);
 
-      document.addEventListener('DOMContentLoaded', function() {
-        document.querySelectorAll('a.mailto-link').forEach(buildMailto);
-      });
-    })();
+                const params = new URLSearchParams();
+                if (subjectRaw) params.set('subject', subjectRaw);
+                if (bodyRaw) params.set('body', bodyRaw);
+
+                const query = params.toString();
+                const href = `mailto:${userSafe}@${domainSafe}${query ? `?${query}` : ''}`;
+
+                el.setAttribute('href', href);
+            }
+
+            document.addEventListener('DOMContentLoaded', () => {
+                document.querySelectorAll('a.mailto-link').forEach(buildMailto);
+            });
+        })();
     </script>
 </body>
 </html>

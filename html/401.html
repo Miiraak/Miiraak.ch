@@ -138,23 +138,32 @@ Thanks!">Contact</a>
 
     <script src="/js/main.js"></script>
     <script>
-    (function() {
-      function buildMailto(el) {
-        const user = (el.getAttribute('data-user') || '').trim();
-        const domain = (el.getAttribute('data-domain') || '').trim();
-        const subjectRaw = el.getAttribute('data-subject') || '';
-        const bodyRaw = el.getAttribute('data-body') || '';
-        if (!user || !domain) return;
-        const userSafe = encodeURIComponent(user);
-        const domainSafe = encodeURIComponent(domain);
-        const subject = encodeURIComponent(subjectRaw);
-        const body = encodeURIComponent(bodyRaw);
-        el.setAttribute('href', `mailto:${userSafe}@${domainSafe}?subject=${subject}&body=${body}`);
-      }
-      document.addEventListener('DOMContentLoaded', function() {
-        document.querySelectorAll('a.mailto-link').forEach(buildMailto);
-      });
-    })();
+        (function () {
+            function buildMailto(el) {
+                const userRaw = (el.getAttribute('data-user') || '').trim();
+                const domainRaw = (el.getAttribute('data-domain') || '').trim();
+                const subjectRaw = (el.getAttribute('data-subject') || '').trim();
+                const bodyRaw = (el.getAttribute('data-body') || '').trim();
+
+                if (!userRaw || !domainRaw) return;
+
+                const userSafe = encodeURIComponent(userRaw);
+                const domainSafe = encodeURIComponent(domainRaw);
+
+                const params = new URLSearchParams();
+                if (subjectRaw) params.set('subject', subjectRaw);
+                if (bodyRaw) params.set('body', bodyRaw);
+
+                const query = params.toString();
+                const href = `mailto:${userSafe}@${domainSafe}${query ? `?${query}` : ''}`;
+
+                el.setAttribute('href', href);
+            }
+
+            document.addEventListener('DOMContentLoaded', () => {
+                document.querySelectorAll('a.mailto-link').forEach(buildMailto);
+            });
+        })();
     </script>
 </body>
 </html>
