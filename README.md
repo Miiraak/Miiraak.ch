@@ -44,7 +44,7 @@ Miiraak.ch/
 ### Prerequisites
 
 - Web server with PHP 7.4+ support
-- Write permissions for `data/stats.json` and `logs/` directoryw
+- Write permissions for `data/stats.json` and `logs/` directory
 
 ### Installation
 
