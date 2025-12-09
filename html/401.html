@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>404 - Not Found | Miiraak</title>
-    <meta name="description" content="Page not found">
+    <title>401 - Unauthorized | Miiraak</title>
+    <meta name="description" content="Authentication required">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex">
     <link rel="stylesheet" href="/css/style.css">
@@ -69,6 +69,13 @@
             font-size: 13px;
             margin-top: 8px;
         }
+        .code-inline {
+            padding: 2px 6px;
+            border: 1px solid var(--text-secondary);
+            background: rgba(0,0,0,0.35);
+            color: var(--text-white);
+            font-family: monospace;
+        }
     </style>
 </head>
 <body>
@@ -86,26 +93,28 @@
         </pre>
 
         <div class="error-container">
-            <p class="prompt">root@miiraak:~$ cd /404</p>
-            <div class="error-code">404</div>
-            <p class="error-message">// FILE NOT FOUND</p>
+            <p class="prompt">root@miiraak:~$ cd /401</p>
+            <div class="error-code">401</div>
+            <p class="error-message">// UNAUTHORIZED</p>
             <p class="error-description">
-                The requested page does not exist in this directory.<br>
-                It may have been moved, deleted, or never existed in the first place.
+                Authentication is required to access this resource.<br>
+                Please provide valid credentials or return to a public area.
             </p>
 
             <div class="error-links">
-                <p class="prompt">root@miiraak:~$ ls -la ../</p>
+                <p class="prompt">root@miiraak:~$ curl -I /protected</p>
+                <p>» Response: <span class="code-inline">401 Unauthorized</span></p>
+
                 <a href="/index.html" class="error-link">← Home</a>
                 <a href="/docs.html" class="error-link">Documentation</a>
                 <a href="/downloads.html" class="error-link">Downloads</a>
                 <a id="mailto-contact" class="error-link mailto-link" href="#"
                    data-user="support"
                    data-domain="miiraak.ch"
-                   data-subject="404 Not Found on miiraak.ch"
+                   data-subject="401 Unauthorized on miiraak.ch"
                    data-body="Hello Miiraak,
 
-I encountered a 404 Not Found error.
+I encountered a 401 Unauthorized error (authentication required).
 
 Page/URL:
 - <paste the address you tried to access>
@@ -119,7 +128,7 @@ Notes:
 Thanks!">Contact</a>
             </div>
 
-            <p class="hint">Tip: double-check the URL spelling or try the navigation links above.</p>
+            <p class="hint">Tip: If you have credentials, try logging in or request access from the administrator.</p>
         </div>
     </div>
 
