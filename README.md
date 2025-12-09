@@ -2,7 +2,7 @@
 
 A terminal-styled personal website showcasing software projects, documentation, and file downloads.
 
-## 🚀 Features
+## Features
 
 - **Terminal-Inspired Design**: Hacker/terminal aesthetic with green-on-black color scheme
 - **Download System**: Secure file download tracking with rate limiting
@@ -11,7 +11,7 @@ A terminal-styled personal website showcasing software projects, documentation, 
 - **Responsive Design**: Mobile-friendly layout
 - **Easter Eggs**: Console commands for interactive features
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 Miiraak.ch/
@@ -26,8 +26,11 @@ Miiraak.ch/
 ├── php/
 │   ├── download.php    # Secure download handler with tracking
 │   ├── admin-stats.php # Admin statistics dashboard
-│   ├── admin-logs.php  # Admin log viewer
-│   └── test-permissions.php # Permission testing utility
+│   └── admin-logs.php  # Admin log viewer
+├── html/
+│   ├── 402.html        # Page 401
+│   ├── 403.html        # Page 403
+│   └── 404.html        # Page 404
 ├── docs/
 │   └── AccountTester.html # Product detail pages
 ├── data/
@@ -36,12 +39,12 @@ Miiraak.ch/
 └── logs/               # Log files directory (auto-created)
 ```
 
-## 🔧 Setup
+## Setup
 
 ### Prerequisites
 
 - Web server with PHP 7.4+ support
-- Write permissions for `data/stats.json` and `logs/` directory
+- Write permissions for `data/stats.json` and `logs/` directoryw
 
 ### Installation
 
@@ -62,7 +65,7 @@ Edit `php/download.php` to configure:
 - `$allowedExtensions`: Permitted file extensions
 - `$maxDownloadsPerMinute`: Rate limiting threshold
 
-## 🔐 Security Features
+## Security Features
 
 - **Whitelist-based downloads**: Only explicitly allowed files can be downloaded
 - **Rate limiting**: Prevents download abuse (configurable)
@@ -72,7 +75,7 @@ Edit `php/download.php` to configure:
 - **MIME type validation**: Prevents serving malicious files
 - **File locking**: Prevents race conditions in stats updates
 
-## 📊 Statistics
+## Statistics
 
 The system tracks:
 - Download counts per product
@@ -85,7 +88,7 @@ Statistics are stored in `data/stats.json` and displayed on:
 - Documentation listing page
 - Admin dashboard (`php/admin-stats.php`)
 
-## 🎨 Customization
+## Customization
 
 ### Adding New Products
 
@@ -112,7 +115,7 @@ CSS variables in `css/style.css`:
 --text-secondary: #00aa00;
 ```
 
-## 🎮 Console Commands
+## Console Commands
 
 Open browser console and type:
 - `help` - Show available commands
@@ -120,7 +123,7 @@ Open browser console and type:
 - `files` - Direct file access info
 - `clear` or `Ctrl+K` - Clear console
 
-## 📝 License
+## License
 
 © 2025 Miiraak | All Rights Reserved
 
@@ -128,11 +131,3 @@ Open browser console and type:
 
 - GitHub: [github.com/Miiraak](https://github.com/Miiraak)
 - Website: [miiraak.ch](https://miiraak.ch)
-
-## ⚠️ Notes
-
-- Delete `php/test-permissions.php` in production
-- Secure admin pages with `.htaccess` authentication
-- Keep `data/stats.json` writable but not web-accessible
-- Review logs regularly via `php/admin-logs.php`
-- BOM (Byte Order Mark) characters removed from all files
