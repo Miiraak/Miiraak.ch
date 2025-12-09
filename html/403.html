@@ -131,8 +131,8 @@ Thanks!">Contact</a>
     <script>
     (function() {
       function buildMailto(el) {
-        let user = (el.getAttribute('data-user') || '').trim();
-        let domain = (el.getAttribute('data-domain') || '').trim();
+        const user = (el.getAttribute('data-user') || '').trim();
+        const domain = (el.getAttribute('data-domain') || '').trim();
         const subjectRaw = el.getAttribute('data-subject') || '';
         const bodyRaw = el.getAttribute('data-body') || '';
         // Only allow safe characters for user and domain (RFC 5322 for user, plus basic domain validation)
