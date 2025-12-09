@@ -3,5 +3,6 @@ Allow: /
 Disallow: /php/
 Disallow: /logs/
 Disallow: /data/
+Disallow: /files/
 
 Sitemap: https://miiraak.ch/sitemap.xml

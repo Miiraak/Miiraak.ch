@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Documentation - Miiraak</title>
     <meta name="description" content="Browse all documentation and product details">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <style>
         /* Docs list styles */
         .docs-container {
@@ -367,8 +367,8 @@
                         <span class="doc-meta-item">Downloads: <strong id="AccountTester">0</strong></span>
                     </div>
                     <div class="doc-actions">
-                        <a href="docs/AccountTester.html" class="doc-btn doc-btn-primary">View Docs</a>
-                        <a href="php/download.php?id=AccountTester&file=AccountTester_v0.8.2.exe" class="doc-btn">Download</a>
+					    <a href="/docs/AccountTester.html" class="doc-btn doc-btn-primary">View Docs</a>
+					    <a href="/php/download.php?id=AccountTester&file=AccountTester_v0.8.2.exe" class="doc-btn">Download</a>
                     </div>
                 </div>
 
@@ -385,8 +385,8 @@
             <!-- Back Navigation -->
             <div class="back-navigation">
                 <p class="prompt">root@miiraak:~/docs$ cd ..</p>
-                <a href="downloads.html" class="doc-btn">← Back to Downloads</a>
-                <a href="index.html" class="doc-btn">← Back to Home</a>
+			    <a href="/downloads.html" class="doc-btn">← Back to Downloads</a>
+			    <a href="/index.html" class="doc-btn">← Back to Home</a>
             </div>
 
         </div>
@@ -396,7 +396,7 @@
         <p>© 2025 Miiraak | <a href="https://github.com/Miiraak">GitHub</a></p>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="/js/main.js"></script>
     <script>
         // Search and filter functionality
         const searchInput = document.getElementById('search-input');
@@ -458,7 +458,7 @@
         // Load total downloads from stats (optional)
         async function loadTotalStats() {
             try {
-                const response = await fetch('data/stats.json');
+		        const response = await fetch('/data/stats.json');
                 const data = await response.json();
                 
                 let totalDownloads = 0;

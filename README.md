@@ -16,7 +16,7 @@ A terminal-styled personal website showcasing software projects, documentation, 
 ```
 Miiraak.ch/
 ├── index.html          # Homepage with navigation
-├── Docs.html           # Documentation listing page
+├── docs.html           # Documentation listing page
 ├── downloads.html      # Downloads listing page
 ├── css/
 │   └── style.css       # Main stylesheet
@@ -101,7 +101,7 @@ Statistics are stored in `data/stats.json` and displayed on:
    }
    ```
 4. Create documentation page in `docs/` based on template
-5. Add card to `Docs.html` and entry to `downloads.html`
+5. Add card to `docs.html` and entry to `downloads.html`
 
 ### Color Scheme
 

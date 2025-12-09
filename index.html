@@ -20,7 +20,7 @@
     <meta property="twitter:title" content="Miiraak - Terminal">
     <meta property="twitter:description" content="Personal terminal-style website showcasing software projects and tools">
     
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     <div class="container">
@@ -44,15 +44,44 @@
                 <p class="prompt">root@miiraak:~$ ls -la</p>
                 <ul class="file-list">
                     <li><a href="#">[HOME]</a> - You are here</li>
-                    <li><a href="Docs.html">[DOCS]</a> - All documentation</li>
+                    <li><a href="docs.html">[DOCS]</a> - All documentation</li>
                     <li><a href="downloads.html">[DOWNLOADS]</a> - Software & Tools</li>
-                    <li><a href="files/">[FILES]</a> - Direct file access</li>
+                    <li><a href="/files/">[FILES]</a> - Direct file access</li>
+                    <!-- Contact (mailto built via JS, address not in source) -->
+                    <li>
+                        <a id="mailto-contact"
+                           class="mailto-link"
+                           href="#"
+                           data-user="support"
+                           data-domain="miiraak.ch"
+                           data-subject="Contact from miiraak.ch"
+                           data-body="Hello Miiraak,
+
+I’d like to get in touch regarding: <product/tool name>
+Page/Context: <paste URL or section>
+
+Issue / Request:
+- What happened:
+- Expected result:
+- Steps to reproduce:
+
+Environment:
+- OS and version:
+- Browser/Terminal:
+- Network/VPN/Proxy (if any):
+
+Attachments / Logs (optional):
+- <brief note or link>
+
+Thanks!"
+                           aria-label="Contact by email">[CONTACT]</a> - Email directly
+                    </li>
                 </ul>
             </div>
 
             <div class="info">
                 <p class="prompt">root@miiraak:~$ cat info.txt</p>
-                <p>» Direct file access: <a href="files/">https://miiraak.ch/files/<filename></a></p>
+                <p>» Direct file access: <a href="files/">https://miiraak.ch/files/&lt;filename&gt;</a></p>
                 <p>» PowerShell: <code>IEX (New-Object Net.WebClient).DownloadString('https://miiraak.ch/files/script.ps1')</code></p>
                 <p>» Curl: <code>curl https://miiraak.ch/files/script.ps1 | sh</code></p>
             </div>
@@ -63,6 +92,30 @@
         <p>© 2025 Miiraak | <a href="https://github.com/Miiraak">GitHub</a></p>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="/js/main.js"></script>
+
+    <!-- Minimal mailto builder: assembles address and encodes subject/body -->
+    <script>
+    (function() {
+      function buildMailto(el) {
+        if (!el) return;
+        const user = (el.getAttribute('data-user') || '').trim();
+        const domain = (el.getAttribute('data-domain') || '').trim();
+        const subjectRaw = el.getAttribute('data-subject') || '';
+        const bodyRaw = el.getAttribute('data-body') || '';
+        if (!user || !domain) return;
+
+        // Encode cleanly from readable template (with real newlines)
+        const subject = encodeURIComponent(subjectRaw);
+        const body = encodeURIComponent(bodyRaw);
+
+        el.setAttribute('href', `mailto:${user}@${domain}?subject=${subject}&body=${body}`);
+      }
+
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('a.mailto-link').forEach(buildMailto);
+      });
+    })();
+    </script>
 </body>
 </html>

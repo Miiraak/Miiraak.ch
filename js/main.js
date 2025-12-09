@@ -23,26 +23,6 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('%c Direct file access: https://miiraak.ch/files/<filename>', 'color: #00ff00;');
     };
     
-    // Optional: Typing effect for description (uncomment to enable)
-    /*
-    const descriptionElement = document.querySelector('.description');
-    if (descriptionElement) {
-        const text = descriptionElement.textContent;
-        descriptionElement.textContent = '';
-        let i = 0;
-        
-        function typeWriter() {
-            if (i < text.length) {
-                descriptionElement.textContent += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 50);
-            }
-        }
-        
-        typeWriter();
-    }
-    */
-    
     // Add keyboard shortcuts
     document.addEventListener('keydown', function(e) {
         // Ctrl/Cmd + K to clear (easter egg)
@@ -52,52 +32,4 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
         }
     });
-    
-    // Matrix rain effect (optional, commented out - uncomment to enable)
-    /*
-    const canvas = document.createElement('canvas');
-    const ctx = canvas.getContext('2d');
-    document.body.appendChild(canvas);
-    
-    canvas.style.position = 'fixed';
-    canvas.style.top = '0';
-    canvas.style.left = '0';
-    canvas.style.width = '100%';
-    canvas.style.height = '100%';
-    canvas.style.zIndex = '-1';
-    canvas.style.opacity = '0.1';
-    
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    
-    const matrix = "MIIRAAK01";
-    const fontSize = 16;
-    const columns = canvas.width / fontSize;
-    const drops = Array(Math.floor(columns)).fill(1);
-    
-    function drawMatrix() {
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        
-        ctx.fillStyle = '#00ff00';
-        ctx.font = fontSize + 'px monospace';
-        
-        for (let i = 0; i < drops.length; i++) {
-            const text = matrix[Math.floor(Math.random() * matrix.length)];
-            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-            
-            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                drops[i] = 0;
-            }
-            drops[i]++;
-        }
-    }
-    
-    setInterval(drawMatrix, 35);
-    
-    window.addEventListener('resize', function() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-    });
-    */
 });

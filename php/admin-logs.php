@@ -3,7 +3,7 @@
  * php/admin-logs.php - View download logs
  */
 
-$logFile = '../logs/download_errors.log'; // ✅ CHANGÉ
+$logFile = '../logs/download_errors.log';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +11,7 @@ $logFile = '../logs/download_errors.log'; // ✅ CHANGÉ
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Download Logs - Admin</title>
-    <link rel="stylesheet" href="../css/style.css"> <!-- ✅ CHANGÉ -->
+    <link rel="stylesheet" href="/css/style.css">
     <style>
         .admin-container {
             max-width: 1200px;
@@ -117,7 +117,7 @@ $logFile = '../logs/download_errors.log'; // ✅ CHANGÉ
             <div style="text-align: center; margin: 30px 0;">
                 <a href="admin-logs.php" class="refresh-btn">🔄 Refresh</a>
                 <a href="admin-stats.php" class="refresh-btn">📊 View Stats</a>
-                <a href="../index.html" class="refresh-btn">🏠 Home</a> <!-- ✅ CHANGÉ -->
+                <a href="/index.html" class="refresh-btn">🏠 Home</a>
             </div>
 
             <p class="prompt">root@miiraak:~$ # Last viewed: <?php echo date('Y-m-d H:i:s'); ?></p>
