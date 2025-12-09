@@ -134,7 +134,13 @@
         // Load CSRF token
         fetch('php/contact-token.php', {credentials: 'same-origin'})
           .then(r => r.json())
-          .then(j => { if (j && j.token) document.getElementById('csrf_token').value = j.token; })
+          .then(j => {
+            if (j && j.token) {
+              document.getElementById('csrf_token').value = j.token;
+            } else {
+              console.warn('Failed to load CSRF token');
+            }
+          })
           .catch(()=>{/* ignore */});
 
         function showMessage(text, type='error') {
