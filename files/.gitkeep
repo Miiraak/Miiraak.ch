@@ -1,2 +1,2 @@
-# This file ensures the logs directory is tracked by git
+# This file ensures the files directory is tracked by git
 # The directory is needed for download error logging
