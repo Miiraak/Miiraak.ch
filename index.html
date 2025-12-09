@@ -109,7 +109,7 @@ Thanks!"
         const subject = encodeURIComponent(subjectRaw);
         const body = encodeURIComponent(bodyRaw);
 
-        el.setAttribute('href', `mailto:${user}@${domain}?subject=${subject}&body=${body}`);
+        el.setAttribute('href', `mailto:${encodeURIComponent(user)}@${encodeURIComponent(domain)}?subject=${subject}&body=${body}`);
       }
 
       document.addEventListener('DOMContentLoaded', function() {
