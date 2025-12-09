@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>401 - Unauthorized | Miiraak</title>
+    <meta name="description" content="Authentication required">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .error-container {
+            text-align: center;
+            margin: 50px auto;
+            max-width: 900px;
+        }
+        .error-code {
+            font-size: 120px;
+            color: var(--text-color);
+            text-shadow: 0 0 20px var(--text-color);
+            margin: 20px 0;
+            animation: glitch 2s infinite;
+        }
+        @keyframes glitch {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+        }
+        .error-message {
+            color: var(--text-white);
+            font-size: 24px;
+            margin: 20px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .error-description {
+            color: var(--text-secondary);
+            font-size: 16px;
+            margin: 20px 0;
+            line-height: 1.7;
+        }
+        .error-links {
+            margin: 40px 0 10px;
+        }
+        .error-link {
+            display: inline-block;
+            margin: 10px;
+            padding: 12px 30px;
+            border: 2px solid var(--text-color);
+            color: var(--text-color);
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: all 0.25s ease;
+            font-weight: 600;
+            letter-spacing: 0.6px;
+        }
+        .error-link:hover {
+            background-color: var(--text-color);
+            color: var(--bg-color);
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.35);
+        }
+        .prompt {
+            color: var(--text-secondary);
+            font-family: monospace;
+        }
+        .hint {
+            color: var(--text-secondary);
+            font-size: 13px;
+            margin-top: 8px;
+        }
+        .code-inline {
+            padding: 2px 6px;
+            border: 1px solid var(--text-secondary);
+            background: rgba(0,0,0,0.35);
+            color: var(--text-white);
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <pre class="ascii-art">
+ ███▄ ▄███▓ ██▓ ██▓ ██▀███   ▄▄▄      ▄▄▄       ██ ▄█▀
+▓██▒▀█▀ ██▒▓██▒▓██▒▓██ ▒ ██▒▒████▄   ▒████▄     ██▄█▒ 
+▓██    ▓██░▒██▒▒██▒▓██ ░▄█ ▒▒██  ▀█▄ ▒██  ▀█▄  ▓███▄░ 
+▒██    ▒██ ░██░░██░▒██▀▀█▄  ░██▄▄▄▄██░██▄▄▄▄██ ▓██ █▄ 
+▒██▒   ░██▒░██░░██░░██▓ ▒██▒ ▓█   ▓██▒▓█   ▓██▒▒██▒ █▄
+░ ▒░   ░  ░░▓  ░▓  ░ ▒▓ ░▒▓░ ▒▒   ▓▒█░▒▒   ▓▒█░▒ ▒▒ ▓▒
+░  ░      ░ ▒ ░ ▒ ░  ░▒ ░ ▒░  ▒   ▒▒ ░ ▒   ▒▒ ░░ ░▒ ▒░
+░      ░    ▒ ░ ▒ ░  ░░   ░   ░   ▒    ░   ▒   ░ ░░ ░ 
+       ░    ░   ░     ░           ░  ░     ░  ░░  ░   
+        </pre>
+
+        <div class="error-container">
+            <p class="prompt">root@miiraak:~$ cd /401</p>
+            <div class="error-code">401</div>
+            <p class="error-message">// UNAUTHORIZED</p>
+            <p class="error-description">
+                Authentication is required to access this resource.<br>
+                Please provide valid credentials or return to a public area.
+            </p>
+
+            <div class="error-links">
+                <p class="prompt">root@miiraak:~$ curl -I /protected</p>
+                <p>» Response: <span class="code-inline">401 Unauthorized</span></p>
+
+                <a href="/index.html" class="error-link">← Home</a>
+                <a href="/docs.html" class="error-link">Documentation</a>
+                <a href="/downloads.html" class="error-link">Downloads</a>
+                <a id="mailto-contact" class="error-link mailto-link" href="#"
+                   data-user="support"
+                   data-domain="miiraak.ch"
+                   data-subject="401 Unauthorized on miiraak.ch"
+                   data-body="Hello Miiraak,
+
+I encountered a 401 Unauthorized error (authentication required).
+
+Page/URL:
+- <paste the address you tried to access>
+
+Expected:
+- <describe what you expected to see>
+
+Notes:
+- <add any relevant details>
+
+Thanks!">Contact</a>
+            </div>
+
+            <p class="hint">Tip: If you have credentials, try logging in or request access from the administrator.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Miiraak | <a href="https://github.com/Miiraak">GitHub</a></p>
+    </footer>
+
+    <script src="/js/main.js"></script>
+    <script>
+        (function () {
+            function buildMailto(el) {
+                const userRaw = (el.getAttribute('data-user') || '').trim();
+                const domainRaw = (el.getAttribute('data-domain') || '').trim();
+                const subjectRaw = (el.getAttribute('data-subject') || '').trim();
+                const bodyRaw = (el.getAttribute('data-body') || '').trim();
+
+                if (!userRaw || !domainRaw) return;
+
+                const userSafe = encodeURIComponent(userRaw);
+                const domainSafe = encodeURIComponent(domainRaw);
+
+                const params = new URLSearchParams();
+                if (subjectRaw) params.set('subject', subjectRaw);
+                if (bodyRaw) params.set('body', bodyRaw);
+
+                const query = params.toString();
+                const href = `mailto:${userSafe}@${domainSafe}${query ? `?${query}` : ''}`;
+
+                el.setAttribute('href', href);
+            }
+
+            document.addEventListener('DOMContentLoaded', () => {
+                document.querySelectorAll('a.mailto-link').forEach(buildMailto);
+            });
+        })();
+    </script>
+</body>
+</html>

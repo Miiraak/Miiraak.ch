@@ -3,7 +3,7 @@
  * php/admin-stats.php - View download statistics
  */
 
-$statsFile = '../data/stats.json'; // ✅ CHANGÉ
+$statsFile = '../data/stats.json';
 
 if (!file_exists($statsFile)) {
     die('Stats file not found');
@@ -25,7 +25,7 @@ foreach ($stats as $data) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Download Statistics - Admin</title>
-    <link rel="stylesheet" href="../css/style.css"> <!-- ✅ CHANGÉ -->
+    <link rel="stylesheet" href="/css/style.css">
     <style>
         .admin-container {
             max-width: 1200px;
@@ -156,9 +156,9 @@ foreach ($stats as $data) {
 
             <!-- Actions -->
             <div style="text-align: center; margin: 30px 0;">
-                <a href="admin-stats.php" class="refresh-btn">🔄 Refresh</a>
-                <a href="admin-logs.php" class="refresh-btn">📋 View Logs</a>
-                <a href="../index.html" class="refresh-btn">🏠 Home</a> <!-- ✅ CHANGÉ -->
+                <a href="admin-stats.php" class="refresh-btn">Refresh</a>
+                <a href="admin-logs.php" class="refresh-btn">View Logs</a>
+                <a href="/index.html" class="refresh-btn">Home</a>
             </div>
 
             <p class="prompt">root@miiraak:~$ # Last updated: <?php echo date('Y-m-d H:i:s'); ?></p>

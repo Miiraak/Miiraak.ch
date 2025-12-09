@@ -1,13 +1,13 @@
 <?php
 /**
  * php/download.php - Secure file download with tracking
- * Usage: php/download.php?id=product-id&file=filename. ext
+ * Usage: php/download.php?id=product-id&file=filename.ext
  */
 
 error_reporting(E_ALL);
 ini_set('display_errors', 0);
 ini_set('log_errors', 1);
-ini_set('error_log', __DIR__ . '/../logs/download_errors.log'); // ✅ CHANGÉ
+ini_set('error_log', __DIR__ . '/../logs/download_errors.log');
 
 session_start();
 
@@ -21,8 +21,8 @@ $allowedFiles = [
 
 $allowedExtensions = ['exe', 'ps1', 'xml', 'bat', 'cmd', 'zip', '7z', 'msi', 'txt', 'pdf'];
 $maxDownloadsPerMinute = 10;
-$statsFile = __DIR__ . '/../data/stats.json';    // ✅ CHANGÉ
-$filesDir = __DIR__ . '/../files/';              // ✅ CHANGÉ
+$statsFile = __DIR__ . '/../data/stats.json';  
+$filesDir = __DIR__ . '/../files/';         
 
 // ============================================
 // RATE LIMITING
