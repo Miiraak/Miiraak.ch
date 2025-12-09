@@ -131,11 +131,13 @@ Thanks!">Contact</a>
     <script>
     (function() {
       function buildMailto(el) {
-        const user = (el.getAttribute('data-user') || '').trim();
-        const domain = (el.getAttribute('data-domain') || '').trim();
+        const userRaw = (el.getAttribute('data-user') || '').trim();
+        const domainRaw = (el.getAttribute('data-domain') || '').trim();
         const subjectRaw = el.getAttribute('data-subject') || '';
         const bodyRaw = el.getAttribute('data-body') || '';
-        if (!user || !domain) return;
+        if (!userRaw || !domainRaw) return;
+        const user = encodeURIComponent(userRaw);
+        const domain = encodeURIComponent(domainRaw);
         const subject = encodeURIComponent(subjectRaw);
         const body = encodeURIComponent(bodyRaw);
         el.setAttribute('href', `mailto:${user}@${domain}?subject=${subject}&body=${body}`);
